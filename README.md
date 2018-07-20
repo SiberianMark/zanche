@@ -3,7 +3,7 @@
 
 ### 界面预览
 
-![主页](./images/game.png)
+![主页](./images/game2.png)
 
 ### 使用方法
 
