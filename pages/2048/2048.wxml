@@ -1,0 +1,62 @@
+<view class="container">
+
+  <view class="game-body">
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+    <view class="heading">
+      	<view class="title">撞车啦！！</view>
+        <!-- <view class="sub-title">目前只有15%的人撞出兰博基尼，不服来撞！</view> -->
+      
+    </view>
+    <view class="score-box">
+      <view class="left">
+            <view class="scores">
+            <view class="score">当前战绩：
+              <!-- <image class="score-car-image" src="{{score}}"></image> -->
+              <text class="score-car-name">{{score}}</text>
+            </view>
+            <view class="best-score">当前豪车：
+              <image class="score-car-image" src="{{curCar.icon_url}}"></image>
+              <text class="score-car-name">{{curCar.name}}</text>
+            </view>
+              <view class="best-score">曾经最土豪：
+              <image class="score-car-image" src="{{bestCar.icon_url}}"></image>
+              <text class="score-car-name">{{bestCar.name}}</text>
+            </view>
+          </view> 
+        </view>
+        <view class="right rank-box">排行榜</view>
+      </view>
+      <view class="game-container-flex">
+            <view class="game-container">
+          <view class="game-message game-{{over ? (win ? 'won' : 'over') : ''}}">
+              <text class="over-msg">{{overMsg}}</text>
+              <view class="lower">
+              <!-- <text class="keep-playing-button">继续</text> -->
+                <text class="retry-button" bindtap="restart">再试一次</text>
+            </view>
+          </view>
+
+        <view class="grid-container" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+        <view wx:for="{{grids}}" wx:for-index="rowIdx" wx:for-item="row" class="grid-row">
+            <view wx:for="{{row}}" wx:for-index="colIdx" wx:for-item="cell" class="grid-cell">
+              <view class="tile tile-{{cell.value}}">
+                <view wx:if="{{cell}}" class="tile-inner">
+                    <view class="car-icon-flex"><image src="{{cell.icon_url}}" class="car-icon"></image></view>
+                    
+                    <text class="text-car-name">{{cell.name}}</text>
+                  </view>
+              </view>
+            </view>
+        </view>
+        </view>
+
+      </view>
+    </view>  
+
+  	<!-- <view class="game-explanation">
+      <view class="important">如何开始：</view> 手指上下左右滑动
+    </view> -->
+  </view>
+</view>
